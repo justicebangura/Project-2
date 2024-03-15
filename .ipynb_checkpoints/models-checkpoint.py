@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 
 def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
@@ -22,3 +23,6 @@ def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     new_df.set_index('timestamp', inplace = True)
     new_df.index = pd.to_datetime(new_df.index)
     return new_df
+=======
+# This file contains seperate functions for building and trainig machine learning  models 
+>>>>>>> fd229b5b6a879d0c05fb09c7439d0907641da447

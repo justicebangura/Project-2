@@ -1,0 +1,1 @@
+# This file contains seperate functions for Risk management and setting stop loss function

@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import os
 
+=======
+<<<<<<< HEAD
+# This file contains seperate functions for building and trainig machine learning  models 
+=======
+>>>>>>> fd229b5b6a879d0c05fb09c7439d0907641da447
 def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     # Grabbing all necessary alpaca information
     alpaca_api_key = os.getenv("ALPACA_API_KEY")
@@ -22,3 +28,4 @@ def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     new_df.set_index('timestamp', inplace = True)
     new_df.index = pd.to_datetime(new_df.index)
     return new_df
+>>>>>>> 6662a79b93bb22baeecb4d2c7fef3bd48454c090
