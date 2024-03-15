@@ -1,1 +1,0 @@
-# This file contains seperate functions for building and trainig machine learning  models 
