@@ -1,3 +1,5 @@
+import os
+
 def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     # Grabbing all necessary alpaca information
     alpaca_api_key = os.getenv("ALPACA_API_KEY")
