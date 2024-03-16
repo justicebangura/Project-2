@@ -1,6 +1,6 @@
 # Group 1 (Justice Bangura, Joanne Laomoc, Katie Nieuwhof , Gandhi Sahib )
 
-![Python Trading bot](https://futurewithtech.com/wp-content/uploads/2021/06/Forex-trading-robots-scaled-1.jpg)
+![Python Trading bot](https://cdn.activestate.com/wp-content/uploads/2020/05/Trading_hero.jpg)
 
 ### Goal
 
