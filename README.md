@@ -1,8 +1,8 @@
 # Group 1 (Justice Bangura, Joanne Laomoc, Katie Nieuwhof , Gandhi Sahib )
 
-![Python Trading bot](https://cdn.activestate.com/wp-content/uploads/2020/05/Trading_hero.jpg)
+![Python Trading bot](https://static.wixstatic.com/media/1938a7_bbb79b18becc4fcab343725d12ae2598~mv2.jpg/v1/fit/w_1000%2Ch_768%2Cal_c%2Cq_80/file.jpg)
 
-### Goal
+### Goal:
 
 In this Project, we will create an algo trading bot/system to predict the profitability of future stock performances.
 
