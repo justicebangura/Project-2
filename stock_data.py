@@ -1,18 +1,13 @@
-import numpy as np
-import random
-import seaborn as sns
-import pandas as pd
-import matplotlib.pyplot as plt
-import alpaca_trade_api as tradeapi
-from dotenv import load_dotenv
 import os
+import pandas as pd
+import alpaca_trade_api as tradeapi
 from alpaca_trade_api.rest import REST, TimeFrame
-import hvplot.pandas
-from scipy.interpolate import interp1d
-import datetime as dt
+from dotenv import load_dotenv
 
+
+# Function for fetching  stock data via Alpaca API
 def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
-    # Grabbing all necessary alpaca information
+    # Grabbing all necessary Alpaca information
     alpaca_api_key = os.getenv("ALPACA_API_KEY")
     alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
     api = REST(alpaca_api_key, alpaca_secret_key, base_url = 'https://paper-api.alpaca.markets')

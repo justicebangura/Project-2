@@ -1,8 +1,13 @@
-<<<<<<< HEAD
 import os
+import pandas as pd
+import alpaca_trade_api as tradeapi
+from alpaca_trade_api.rest import REST, TimeFrame
+from dotenv import load_dotenv
 
+
+# Function for fetching  stock data via Alpaca API
 def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
-    # Grabbing all necessary alpaca information
+    # Grabbing all necessary Alpaca information
     alpaca_api_key = os.getenv("ALPACA_API_KEY")
     alpaca_secret_key = os.getenv("ALPACA_SECRET_KEY")
     api = REST(alpaca_api_key, alpaca_secret_key, base_url = 'https://paper-api.alpaca.markets')
@@ -23,6 +28,3 @@ def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     new_df.set_index('timestamp', inplace = True)
     new_df.index = pd.to_datetime(new_df.index)
     return new_df
-=======
-# This file contains seperate functions for building and trainig machine learning  models 
->>>>>>> fd229b5b6a879d0c05fb09c7439d0907641da447
