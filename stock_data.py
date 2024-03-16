@@ -19,12 +19,12 @@ def fetch_stock_data(start_date, end_date, tickers, timeframe = '1Day'):
     dfs = {}
     for ticker in tickers:
         ticker_df = df_ticker.loc[df_ticker.symbol == ticker].drop('symbol', axis = 1)
-        ticker_df = ticker_df['close']
+        ticker_df = ticker_df[['open','close','high','volume']]
         dfs[ticker] = ticker_df
-    new_df = pd.concat(dfs.values(), axis = 1, keys = tickers)
+    stock_data = pd.concat(dfs.values(), axis = 1, keys = tickers)
     # Resetting index to have only date information
-    new_df.reset_index(inplace = True)
-    new_df.timestamp = new_df.timestamp.dt.date
-    new_df.set_index('timestamp', inplace = True)
-    new_df.index = pd.to_datetime(new_df.index)
-    return new_df
+    stock_data.reset_index(inplace = True)
+    stock_data.timestamp = stock_data.timestamp.dt.date
+    stock_data.set_index('timestamp', inplace = True)
+    stock_data.index = pd.to_datetime(stock_data.index)
+    return stock_data
