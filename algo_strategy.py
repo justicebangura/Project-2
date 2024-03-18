@@ -2,7 +2,6 @@
 
 # check correlation of strategies the returns should be uncorelated to reduce overall portfolio risk - diversification
 
-
 def strategy_one(Stock_data):
     #lets write logic for strategy
     return "Signal- Buy or sell"
