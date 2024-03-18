@@ -4,7 +4,7 @@
 # output softmax or sigmoid
 
 
-def model_one(X_train,y_train):
+def lstm_model(X_train,y_train):
     #lets write logic for model here
     return {
     "loss": loss,
@@ -14,7 +14,7 @@ def model_one(X_train,y_train):
     "f1_score": f1_score}
 
 
-def model_two(X_train,y_train):
+def ema_model(X_train,y_train):
     #lets write logic for model here
     return {
     "loss": loss,
