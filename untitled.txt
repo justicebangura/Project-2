@@ -1,0 +1,21 @@
+	- Wilder Moving Avg - used to identify trends and potential entry and exit points in the financial market
+period = 5
+
+# Assuming df_stock is your DataFrame containing stock data
+# Assuming short_window and period are defined variables
+
+# Calculate the weighted moving average (WMA)
+wma_values = df_stock['close'].ewm(alpha=1.0 / period, adjust=False).mean()
+
+# Create a DataFrame to store the WMA values
+wma_df = pd.DataFrame(index=df_stock.index, columns=['WMA'])
+
+# Calculate the WMA for the initial period separately and append the rest
+wma_initial = df_stock['close'].iloc[:period].mean()
+wma_df.loc[df_stock.index[period - 1], 'WMA'] = wma_initial
+wma_df['WMA'].iloc[period:] = wma_values[short_window:]
+
+# Assign the calculated WMA DataFrame back to df_stock
+df_stock['WMA'] = wma_df['WMA']
+
+df_stock.head()
