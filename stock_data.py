@@ -25,7 +25,7 @@ def fetch_stock_data(start_date, end_date, tickers, timeframe='1Day'):
     
     for ticker in tickers:
         ticker_df = df_ticker.loc[df_ticker.symbol == ticker].drop('symbol', axis=1)
-        ticker_df = ticker_df[['open', 'close', 'high', 'volume']]
+        ticker_df = ticker_df[['open', 'close', 'high', 'volume','low']]
         dfs[ticker] = ticker_df
         
     data = pd.concat(dfs.values(), axis=1, keys=tickers)
@@ -72,3 +72,40 @@ def get_clusters_from_sp500(sp500_url, split_factor=1, dividend=0):
 
     return top_tickers
 
+
+### Function to shifts the dates 1 back for each date 
+def df_to_windowed_df(stock_df, first_date_str, last_date_str, n=3):
+    first_date = pd.to_datetime(first_date_str)
+    last_date = pd.to_datetime(last_date_str)
+    target_date = first_date
+    dates = []
+    X, Y = [], []
+    last_time = False
+    while True:
+        df_subset = stock_df.loc[:target_date].tail(n + 1)
+        if len(df_subset) != n + 1:
+            print(f'Error: Window of size {n} is too large for date {target_date}')
+            return
+        values = df_subset['NVDA']['close'].to_numpy()  # Adjusted to access close price
+        x, y = values[:-1], values[-1]
+        dates.append(target_date)
+        X.append(x)
+        Y.append(y)
+        next_week = stock_df.loc[target_date:target_date + pd.Timedelta(days=7)]
+        next_datetime_str = str(next_week.head(2).tail(1).index.values[0])
+        next_date_str = next_datetime_str.split('T')[0]
+        year_month_day = next_date_str.split('-')
+        year, month, day = map(int, year_month_day)
+        next_date = datetime.datetime(day=day, month=month, year=year)
+        if last_time:
+            break
+        target_date = next_date
+        if target_date == last_date:
+            last_time = True
+    ret_df = pd.DataFrame({})
+    ret_df['Target Date'] = dates
+    X = np.array(X)
+    for i in range(0, n):
+        ret_df[f'Target-{n - i}'] = X[:, i]
+    ret_df['Target'] = Y
+    return ret_df
