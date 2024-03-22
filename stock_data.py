@@ -27,8 +27,7 @@ def fetch_stock_data(tickers, alpaca_api_key, api_secret_key, base_url):
     return stock_data
 
 
-
-# Function for sellecting top 75 dollar volume (liquidity) stocks
+# Function for sellecting top dollar volume (liquidity) stocks
 def get_top_tickers(sp500_url):
     
     # Select tickers
