@@ -1,4 +1,7 @@
 # This file contains seperate functions for backtesting 
+import pandas as pd
+import numpy as np
+
 def calculate_position(stock_df):
     # Set initial capital
     initial_capital = float(100000)
@@ -22,11 +25,6 @@ def subset_around_crossovers(df, crossover_points):
     unique_rows = sorted(set(row_ranges))
     return df.iloc[unique_rows]
 
-
-
-
-import pandas as pd
-import numpy as np
 
 def portfolio_metrics(stock_df):
     # Calculate annualized return

@@ -9,7 +9,6 @@ def simple_momentum(stock_df):
     # Initialize the new Signal column
     stock_df["Signal_SM"] = 0.0
 
-<<<<<<< HEAD
     # When Actual Returns are greater than or equal to 0, generate signal to buy stock option long
     stock_df.loc[stock_df["Daily Returns"] >= 0, "Signal_SM"] = 1
 
@@ -83,13 +82,6 @@ def pairs_trading_signals(stock_df, entry_threshold=1.0, exit_threshold=0.5):
     stock_df['Signal_PTS'] = signals
 
     return stock_df
-
-
-
-=======
-    #lets write logic for strategy
-    return "Signal-Buy or sell"
->>>>>>> be8f67c829c2032a256d05ad09520c68e0a4e23c
 
 
 # check correlation of strategies the returns should be uncorelated to reduce overall portfolio risk - diversification
