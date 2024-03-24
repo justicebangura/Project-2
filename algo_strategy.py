@@ -34,7 +34,6 @@ def dmac_strategy(stock_df):
     return stock_df
 
 
-
 def finta_strategy(stock_df):
     # Initialize the 'Signal_FINTA' column with zeros
     stock_df["Signal_FINTA"] = 0.0
@@ -85,3 +84,26 @@ def pairs_trading_signals(stock_df, entry_threshold=1.0, exit_threshold=0.5):
 
 
 # check correlation of strategies the returns should be uncorelated to reduce overall portfolio risk - diversification
+
+# Majority voting Algo signal function
+
+def majority_vote(signals):
+    majority_signals = []
+
+    # Iterate over each asset's signals
+    for asset_signals in zip(*signals):
+        buy_count = sum(1 for signal in asset_signals if signal == 1)
+        sell_count = sum(1 for signal in asset_signals if signal == -1)
+        
+        # Determine the majority vote for the current asset
+        if buy_count > sell_count:
+            majority_signal = 1  # Buy signal
+        elif sell_count > buy_count:
+            majority_signal = -1  # Sell signal
+        else:
+            majority_signal = 0  # Hold signal
+        
+        # Append the majority signal for the current asset to the list
+        majority_signals.append(majority_signal)
+
+    return majority_signals

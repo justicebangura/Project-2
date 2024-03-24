@@ -13,10 +13,10 @@ def fetch_stock_data(tickers, alpaca_api_key, api_secret_key, base_url):
 
     # Specify the start and end dates directly
     start_date = pd.Timestamp("2016-03-01", tz="America/New_York").isoformat()
-    end_date = pd.Timestamp("2024-03-01", tz="America/New_York").isoformat()
+    end_date = pd.Timestamp("2024-03-20", tz="America/New_York").isoformat()
 
     # Set timeframe to "1Day" for Alpaca API
-    timeframe = "1Day"
+    timeframe = "1Hour"
 
     # Get closing prices for the tickers for the specified timeframe and dates
     dataframe = api.get_bars(tickers, timeframe, start=start_date, end=end_date).df
@@ -39,7 +39,7 @@ def get_top_tickers(sp500_url):
 
     # Fetch stock data from Yahoo Finance
     end_date = pd.Timestamp.now().date()
-    start_date = end_date - pd.DateOffset(days=63)
+    start_date = end_date - pd.DateOffset(days=2268)
     stock_data = yf.download(tickers=tickers, start=start_date, end=end_date)
 
     # Drop stocks with less than 1 trading year
@@ -61,7 +61,7 @@ def get_top_tickers(sp500_url):
     sorted_stacked_data = stacked_data.sort_values(ascending=False)
 
     # Select the top 5 values
-    top_values = sorted_stacked_data.head(75)
+    top_values = sorted_stacked_data.head(5)
 
     # Extract the index of the top 5 values
     top_tickers = top_values.index.tolist()

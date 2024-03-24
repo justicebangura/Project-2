@@ -1,4 +1,4 @@
-# This python file contains feautures calculations 
+# This python file contains feautures to be added to the Dataframe 
 
 import pandas_ta as ta
 import pandas as pd
@@ -53,5 +53,11 @@ def finta_technical_indicators(stock_df):
     # Add the SMA technical indicators for the short and long windows
     stock_df["TA Short"] = TA.SMA(stock_df, short_window)
     stock_df["TA Long"] = TA.SMA(stock_df, long_window)
+    
+    return stock_df
+
+def calculate_strategy_returns(stock_df):
+    
+    stock_df['Strategy Returns'] = stock_df['Daily Returns'] * stock_df['Signal'].shift()
     
     return stock_df
