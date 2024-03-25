@@ -5,15 +5,17 @@ import pandas as pd
 import numpy as np
 from finta import TA
 
-
+# calculate percentage change
 def calculate_pct_change(stock_df):
     stock_df['Daily Returns'] = stock_df['close'].pct_change()
     return stock_df
 
+# stock cumulative returns
 def cumulative_returns(stock_df):
     stock_df['Cumulative Returns'] = (1 + stock_df['Daily Returns']).cumprod()
     return stock_df
 
+# Slow and fast moving averages
 def sma_ema_long_short(stock_df):
     short_window = 50
     long_window = 100
@@ -44,6 +46,7 @@ def calculate_bollinger_bands(stock_df):
     
     return stock_df
 
+# finta strategy
 def finta_technical_indicators(stock_df):
 
     # Set the short window and long windows
@@ -56,8 +59,44 @@ def finta_technical_indicators(stock_df):
     
     return stock_df
 
+# This section is for plotting strategy returns 
 def calculate_strategy_returns(stock_df):
     
-    stock_df['Strategy Returns'] = stock_df['Daily Returns'] * stock_df['Signal'].shift()
+    stock_df['Majority Vote Returns'] = stock_df['Daily Returns'] * stock_df['Signal'].shift()
+    
+    return stock_df
+
+# calculate simple momentum returns
+def calculate_simple_momentum_returns(stock_df):
+    
+    stock_df['Simple Momentum Returns'] = stock_df['Daily Returns'] * stock_df['Signal_SM'].shift()
+    
+    return stock_df
+
+# calculate dmac returns
+def calculate_dmac_returns(stock_df):
+    
+    stock_df['DMAC Returns'] = stock_df['Daily Returns'] * stock_df['Signal_DMAC'].shift()
+    
+    return stock_df
+
+# calculate finta returns
+def calculate_finta_returns(stock_df):
+    
+    stock_df['Finta Returns'] = stock_df['Daily Returns'] * stock_df['Signal_FINTA'].shift()
+    
+    return stock_df
+
+# calculate bollinger bands returns
+def calculate_bollinger_bands_returns(stock_df):
+    
+    stock_df['Bollinger Bands Returns'] = stock_df['Daily Returns'] * stock_df['Signal_BB'].shift()
+    
+    return stock_df
+
+# calculate pairs trading returns
+def calculate_pairs_trading_returns(stock_df):
+    
+    stock_df['Pairs_Trading_Returns'] = stock_df['Daily Returns'] * stock_df['Signal_PTS'].shift()
     
     return stock_df

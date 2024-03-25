@@ -3,36 +3,9 @@ import pandas as pd
 import numpy as np
 
 
-
-def subset_around_crossovers(stock_df, all_cross_points):
-    # Extract buy and sell points from stock_df
-    buy_points = stock_df['entry']
-    sell_points = stock_df['exit']
-
-    # Combine buy and sell points into all_cross_points
-    all_cross_points = buy_points | sell_points
-
-    # Find indices of crossover points
-    crossover_indices = np.where(all_cross_points)[0]
-
-    # Define row ranges around crossover points
-    row_ranges = []
-    for index in crossover_indices:
-        start_row = max(index - 1, 0)  # Start one row before the crossover point
-        end_row = min(index + 1, len(stock_df))  # End one row after the crossover point
-        row_ranges.extend(range(start_row, end_row))
-
-    # Remove duplicate rows and sort them
-    unique_rows = sorted(set(row_ranges))
-
-    # Extract subset DataFrame based on unique rows
-    stock_df = stock_df.iloc[unique_rows]
-
-    return stock_df
-
 def calculate_position(stock_df):
     # Set the share size
-    share_size = 3000
+    share_size = 300
     
     # Calculate position based on major signal
     stock_df['Position'] = share_size * stock_df['Signal']
@@ -112,36 +85,40 @@ def portfolio_metrics(stock_df):
 
 
 def trade_evaluation(stock_df):
-    trade_evaluation_df = pd.DataFrame(columns=[
-        "Stock", "Entry Date", "Exit Date", "Shares", "Entry Share Price",
-        "Exit Share Price", "Entry Portfolio Holding", "Exit Portfolio Holding",
-        "Profit/Loss" ])
+    
+    trade_evaluation_list = []    
+    entry_date = None
+    entry_portfolio_holding = 0
+    share_size = None
 
     for index, row in stock_df.iterrows():
-        if row["Signal"] == 1:
+        if row["entry"] == 1:
             entry_date = index
-            entry_portfolio_holding = row["Portfolio Holdings"]
-            share_size = row["Entry/Exit Position"]
-            entry_share_price = row["close"]
+            entry_portfolio_holding = row["close"]
+            share_size = row["Signal"]
 
-        elif row["Signal"] == -1:
+        elif row["exit"] == -1:
             exit_date = index
-            exit_portfolio_holding = abs(row["close"] * row["Entry/Exit Position"])
+            exit_portfolio_holding = abs(row["close"] * row["Signal"])
             exit_share_price = row["close"]
             profit_loss = exit_portfolio_holding - entry_portfolio_holding
 
-            # Update trade evaluation DataFrame
-            trade_evaluation_df = trade_evaluation_df.append({
-                "Stock": "META",
+            # Append data to the trade evaluation list
+            trade_evaluation_list.append({
+                "Symbol": row["symbol"],
                 "Entry Date": entry_date,
                 "Exit Date": exit_date,
                 "Shares": share_size,
-                "Entry Share Price": entry_share_price,
+                "Entry Share Price": entry_portfolio_holding,
                 "Exit Share Price": exit_share_price,
                 "Entry Portfolio Holding": entry_portfolio_holding,
                 "Exit Portfolio Holding": exit_portfolio_holding,
-                "Profit/Loss": profit_loss }, ignore_index=True)
+                "Profit/Loss": profit_loss })
 
+    trade_evaluation_df = pd.DataFrame(trade_evaluation_list)
     return trade_evaluation_df
+
+
+
 
 
