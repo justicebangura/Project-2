@@ -2,9 +2,18 @@
 
 ![Python Trading bot](https://static.wixstatic.com/media/1938a7_bbb79b18becc4fcab343725d12ae2598~mv2.jpg/v1/fit/w_1000%2Ch_768%2Cal_c%2Cq_80/file.jpg)
 
-### Goal:
+### Overview:
 
-In this Project, we will create an algo trading bot/system to predict the profitability of future stock performances.
+Our goal was to create a trading bot to predict the future performance of a stock profitability, using different trading strategies combined with LSTM (LongShort-Term Memory) networks. This project aims to provide a tool for traders to make informed decisions based on predictive analytics.
+
+### Features:
+- **Feature Engineering**: Manipulated data to curate mulitple features to feed into the model to generate internal structures.
+- **Multiple Trading Strategies**: Implemented various trading strategies such as simple momemtum, DMAC (Dual Moving Average Crossover), Finta, Bollinger Bands and Pairs Trading.
+- **Data Processing and Cleaning**:
+- **Model Engineering**: LSTM 
+- **Backtesting**: Utilized a variety of methods, Risk and Rewards evaluation metrics such as Annualized Return, Cumulative Returns, Annual Volatility, Sharpe Ratio and Sortino Ratio. Enables backtesting of trading strategies to evaluate their performance over historical data using visual displays. 
+
+
 
 #### Steps: 
 
@@ -39,3 +48,15 @@ backtesting.py
 plotting.py
 
 put more focus on neuro networking and lstm Models 
+### Usage and Installation:
+- ! pip install tensorflow
+- ! 
+
+### Findings: 
+
+
+### Conclusion:
+
+### Next Steps:
+- **Stock Prediction**
+- **Real-Time Trading**
