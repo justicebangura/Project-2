@@ -9,60 +9,33 @@ Our goal was to create a trading bot to predict the future performance of a stoc
 ### Overview:
 - **Feature Engineering**: Manipulated data to curate mulitple features to feed into the model to generate internal structures.
 - **Multiple Trading Strategies**: Implemented various trading strategies such as simple momemtum, DMAC (Dual Moving Average Crossover), Finta, Bollinger Bands and Pairs Trading.
-- **Data Processing and Cleaning**: Used a variety of methods to clean and process the data such as, dropna, PCA, Standard Scaler. 
-- **Model Engineering**: Engineered the LSTM to work functionally with our dataset.
+- **Data Processing and Cleaning**: Used a variety of methods to clean, process and standardized the data such as, dropna, PCA, Standard Scaler. 
+- **Model Engineering**: Engineered the LSTM to work functionally with our dataset by reshaping the model to fit a 3-D array.
+- **Split, Train, Fit Data**: Split the data into Train and Test. Fit the data to feed into the model.
+- **Predictions**: Use the model to make predictions on the test set.
 - **Backtesting**: Utilized a variety of methods, Risk and Rewards evaluation metrics such as Annualized Return, Cumulative Returns, Annual Volatility, Sharpe Ratio and Sortino Ratio. Enables backtesting of trading strategies to evaluate their performance over historical data using visual displays. 
 
 
-
-#### Steps: 
-
-1. Data collection - using Api or Alpaca to gather stock information, and get env and gitignore
-
-2. Feature engineering - find the best combination of additional features and trading strategy we want to use to make the model better to increase profitability and find out the optimal training window size using the rolling window function. including different features like pct change(daily), annual returns, cumulative change, and simple moving averages using the rolling window. 
-
-3. Backtesting - Try out different models to see which model performs best, with our trading Strategy as well as different trading features.
-
-4. Predictions - profitability, Volatility, 
-
-5. nnModel evaluations - we can use neural networks, lstm, log_reg,  and evaluate the classification reports, etc
-
-6. Metrics/Plotting - See if Our Deep learning model beats the baseline using an overlay graph *, and also if our trading strategy is better than say Buy and Hold and S&p500 index which is an average of 8.5%
-
-Files:
-
-AlgoTrading_bot.ipynb (we all work together on the main file)
-imports -------Feauture engineering! 
-a function that chooses the best trading strategy but combines strategy in the Def function[import strategy from strategy.py as a list]
-a function that chooses the best nn Model or combines model in the Def function[import models from models.py as a list]
-Plots--------------------------using hvplot
-function to place a trade
-
-
-strategy.py
-
-models.py 
-
-backtesting.py
-
-plotting.py
-
-put more focus on neuro networking and lstm Models 
 ### Installation:
 - ! pip install tensorflow
 - ! pip install finta
 - ! pip install install alpaca-trade-api
 
 ### Usage:
+- Use fetch_stock_data to create a stock dataframe
+- Use features to curate what features you want to add into your dataframe
+- Clean and Process your data
+- Create a buy/sell/hold Algorithim to feed into the model to make predictions
+- Split the data into Train and Test sets
+- Standarize and fit the data
+- Feed into the LSTM Model
+- Run analysis 
 
-
-### Findings: 
-
-### Challenges:
 
 ### Results and Summary:
 - 
-
+### Challenges:
+The major challenges we faced was engineering the LSTM model. All the models we learned 
 ### Conclusion:
 
 ### Next Steps:
@@ -70,3 +43,7 @@ put more focus on neuro networking and lstm Models
 - **Real-Time Trading**
 
 ### Authors:
+**Justice Bangura**:
+**Joanne Laomoc**:
+**Katie Nieuwhof**:
+**Gandhi Sahib**: 
