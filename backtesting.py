@@ -5,7 +5,7 @@ import numpy as np
 
 def calculate_position(stock_df):
     # Set the share size
-    share_size = 252
+    share_size = 300
     
     # Calculate position based on major signal
     stock_df['Position'] = share_size * stock_df['Signal']
