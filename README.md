@@ -2,11 +2,11 @@
 
 ![Python Trading bot](https://static.wixstatic.com/media/1938a7_bbb79b18becc4fcab343725d12ae2598~mv2.jpg/v1/fit/w_1000%2Ch_768%2Cal_c%2Cq_80/file.jpg)
 
-### Overview:
+### Goal:
 
 Our goal was to create a trading bot to predict the future performance of a stock profitability, using different trading strategies combined with LSTM (LongShort-Term Memory) networks. This project aims to provide a tool for traders to make informed decisions based on predictive analytics.
 
-### Features:
+### Overview:
 - **Feature Engineering**: Manipulated data to curate mulitple features to feed into the model to generate internal structures.
 - **Multiple Trading Strategies**: Implemented various trading strategies such as simple momemtum, DMAC (Dual Moving Average Crossover), Finta, Bollinger Bands and Pairs Trading.
 - **Data Processing and Cleaning**:
@@ -48,15 +48,25 @@ backtesting.py
 plotting.py
 
 put more focus on neuro networking and lstm Models 
-### Usage and Installation:
+### Installation:
 - ! pip install tensorflow
-- ! 
+- ! pip install finta
+- ! pip install install alpaca-trade-api
+
+### Usage:
+
 
 ### Findings: 
 
+### Challenges:
+
+### Results and Summary:
+- 
 
 ### Conclusion:
 
 ### Next Steps:
 - **Stock Prediction**
 - **Real-Time Trading**
+
+### Authors:
