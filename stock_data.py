@@ -13,7 +13,7 @@ def fetch_stock_data(tickers, alpaca_api_key, api_secret_key, base_url):
 
     # Specify the start and end dates directly
     start_date = pd.Timestamp("2016-03-01", tz="America/New_York").isoformat()
-    end_date = pd.Timestamp("2024-03-01", tz="America/New_York").isoformat()
+    end_date = pd.Timestamp("2024-03-24", tz="America/New_York").isoformat()
 
     # Set timeframe to "1Day" for Alpaca API
     timeframe = "1Hour"

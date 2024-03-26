@@ -30,7 +30,7 @@ def dmac_strategy(stock_df):
     # and 0 is when the condition is not met
     
     stock_df["Signal_DMAC"][short_window:] = np.where(
-        stock_df["SMA50"][short_window:] > stock_df["SMA100"][short_window:], 1.0, 0.0)
+        stock_df["SMA50"][short_window:] > stock_df["SMA100"][short_window:], 1.0, -1.0)
     return stock_df
 
 
@@ -43,7 +43,7 @@ def finta_strategy(stock_df):
 
     # Generate trading signals: 1 for buy, 0 for hold
     stock_df["Signal_FINTA"][short_window:] = np.where(
-        stock_df["TA Short"][short_window:] > stock_df["TA Long"][short_window:], 1.0, 0.0)
+        stock_df["TA Short"][short_window:] > stock_df["TA Long"][short_window:], 1.0, -1.0)
 
     return stock_df
 
@@ -98,7 +98,7 @@ def majority_vote(signals):
         # Determine the majority vote for the current asset
         if buy_count > sell_count:
             majority_signal = 1  # Buy signal
-        elif sell_count > buy_count:
+        elif buy_count < sell_count:
             majority_signal = -1  # Sell signal
         else:
             majority_signal = 0  # Hold signal

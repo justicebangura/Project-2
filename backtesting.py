@@ -5,7 +5,7 @@ import numpy as np
 
 def calculate_position(stock_df):
     # Set the share size
-    share_size = 300
+    share_size = 252
     
     # Calculate position based on major signal
     stock_df['Position'] = share_size * stock_df['Signal']
@@ -81,7 +81,6 @@ def portfolio_metrics(stock_df):
     portfolio_evaluation_df.loc["Sortino Ratio", "Strategy Backtest"] = sortino_ratio
 
     return portfolio_evaluation_df
-
 
 
 def trade_evaluation(stock_df):
