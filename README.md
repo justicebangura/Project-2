@@ -40,7 +40,9 @@ Our goal was to create a trading bot to predict the future performance of a stoc
 
 ### Challenges:
 The major challenges we faced was engineering the LSTM model. Understanding how to reshape and fit a 3-D model. 
+
 ### Conclusion:
+In conclusion: Our model didn't work as we expected it to be, we found many challenges a long the way. Having a small dataset and baised dataset. 
 
 ### Next Steps:
 - **Stock Prediction**
