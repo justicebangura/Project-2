@@ -35,14 +35,13 @@ Our goal was to create a trading bot to predict the future performance of a stoc
 
 
 ### Results and Summary:
-- We found our model was biased towards the buy signal. 
-
+- In summary, we found our model was biased towards the buy signal, and didn't produce as high of an accuracy score or return as we would have liked. This can be indentified in our backtesting and analysis portion of our notebook, with plots included in this section. 
 
 ### Challenges:
-The major challenges we faced was engineering the LSTM model. Understanding how to reshape and fit a 3-D model. 
+The major challenges we faced was engineering the LSTM model and understanding how to reshape and fit a 3D model. We also experienced challenges balancing the classes to avoid model bias.
 
 ### Conclusion:
-In conclusion: Our model didn't work as we expected it to be, we found many challenges a long the way. Aside from the challenges we faced, we have a baseline understanding on how to fix our model and tune our features to get a better outcome.
+- Overall, we have learnt a great deal and now have a strong understanding in builiding a trading bot and utilizing LSTM models. Despite the challenges we faced, we have the ground work complete and may continue fine tuning the model to achieve a more profitable outcome in future. 
 
 ### Next Steps:
 - Curate our model into a continuous model.
