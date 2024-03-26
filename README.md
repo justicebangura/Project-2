@@ -45,7 +45,8 @@ The major challenges we faced was engineering the LSTM model. Understanding how 
 In conclusion: Our model didn't work as we expected it to be, we found many challenges a long the way. Aside from the challenges we faced, we have a baseline understanding on how to fix our model and tune our features to get a better outcome.
 
 ### Next Steps:
-- Curate our model into a continuous model. Knowing it predicts high buy signals, we could tune the model to randomly sell.
+- Curate our model into a continuous model.
+- Knowing it predicts high buy signals, we could tune the model to randomly sell.
 - Modify it to be a Stock Prediction Model
 - Real-Time Trading
 
